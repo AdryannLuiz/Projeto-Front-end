@@ -210,29 +210,29 @@ form {
 	   left: 5%;
 	}
 	.borda2 {
-	   width: 30%;
+	   width: 90%;
 	   left: 5%;
-	   top: 10%;
+	   top: 5%;
 	}
 	.borda3 {
-	   width: 30%;
+	   width: 90%;
 	   left: 5%;
 	   top: 20%;
 	}
 	.borda4 {
-		width: 30%;
-		left: 5%;
-		top: 30%;
-	 }
-	 .borda6 {
-		width: 30%;
+		width: 90%;
 		left: 5%;
 		top: 40%;
 	 }
-	 .borda7 {
-		width: 30%;
+	 .borda6 {
+		width: 90%;
 		left: 5%;
-		top: 50%;
+		top: 60%;
+	 }
+	 .borda7 {
+		width: 90%;
+		left: 5%;
+		top: 80%;
 	 }
  }
  form {
