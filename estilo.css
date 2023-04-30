@@ -206,27 +206,27 @@ form {
   /* estilos para dispositivos móveis */
 @media only screen and (max-width: 600px) {
 	.borda1 {
-	   width: 90%;
+	   width: 30%;
 	   left: 5%;
 	}
 	.borda2 {
-	   width: 90%;
+	   width: 30%;
 	   left: 25%;
 	}
 	.borda3 {
-	   width: 90%;
+	   width: 30%;
 	   left: 45%;
 	}
 	.borda4 {
-		width: 90%;
+		width: 30%;
 		left: 5%;
 	 }
 	 .borda6 {
-		width: 90%;
+		width: 30%;
 		left: 25%;
 	 }
 	 .borda7 {
-		width: 90%;
+		width: 30%;
 		left: 45%;
 	 }
  }
@@ -278,4 +278,24 @@ form {
 		width: 24%;
 		left: 930px;
 	 }
+	 form {
+		display: flex;
+		align-items: center;
+		height: 40px;
+		width: 100%;
+	  }
+	  
+	  .container img {
+		max-width: 200%;
+		height: 120%;
+	  }
+	  
+	 .search-container {
+		position: absolute;
+		top: 50%;
+		left: 40%;
+		transform: translate(-50%, -50%);
+		z-index: 1;
+		margin: auto;
+	  }
  }
