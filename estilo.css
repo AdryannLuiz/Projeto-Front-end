@@ -211,23 +211,28 @@ form {
 	}
 	.borda2 {
 	   width: 30%;
-	   left: 25%;
+	   left: 5%;
+	   top: 10%;
 	}
 	.borda3 {
 	   width: 30%;
-	   left: 45%;
+	   left: 5%;
+	   top: 20%;
 	}
 	.borda4 {
 		width: 30%;
 		left: 5%;
+		top: 30%;
 	 }
 	 .borda6 {
 		width: 30%;
-		left: 25%;
+		left: 5%;
+		top: 40%;
 	 }
 	 .borda7 {
 		width: 30%;
-		left: 45%;
+		left: 5%;
+		top: 50%;
 	 }
  }
  form {
@@ -247,6 +252,7 @@ form {
     top: 50%;
     left: 40%;
     transform: translate(-50%, -50%);
+
 	max-width: 80%;
 	height: 20%;
   }
@@ -278,24 +284,4 @@ form {
 		width: 24%;
 		left: 930px;
 	 }
-	 form {
-		display: flex;
-		align-items: center;
-		height: 40px;
-		width: 100%;
-	  }
-	  
-	  .container img {
-		max-width: 80%;
-		height: 80%;
-	  }
-	  
-	 .search-container {
-		position: absolute;
-		top: 50%;
-		left: 40%;
-		transform: translate(-50%, -50%);
-		max-width: 80%;
-		height: 20%;
-	  }
  }
