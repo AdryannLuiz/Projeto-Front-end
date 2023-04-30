@@ -3,11 +3,7 @@
 	left: 170px;
 	position: relative;
 }
-.tamanho2{
-	width: 1500px;
-    height: 400px;
-	margin: 0 auto;
-}
+
 .link1{
 	position: relative;
 	left: 1140px;
@@ -215,11 +211,11 @@ form {
 	}
 	.borda2 {
 	   width: 90%;
-	   left: 5%;
+	   left: 25%;
 	}
 	.borda3 {
 	   width: 90%;
-	   left: 5%;
+	   left: 45%;
 	}
 	.borda4 {
 		width: 90%;
@@ -227,14 +223,33 @@ form {
 	 }
 	 .borda6 {
 		width: 90%;
-		left: 5%;
+		left: 25%;
 	 }
 	 .borda7 {
 		width: 90%;
-		left: 5%;
+		left: 45%;
 	 }
  }
- 
+ form {
+	display: flex;
+	align-items: center;
+	height: 40px;
+	width: 100%;
+  }
+  
+  .container img {
+    max-width: 200%;
+    height: 120%;
+  }
+  
+ .search-container {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    margin: auto;
+  }
  /* estilos para tablets e desktops */
  @media only screen and (min-width: 601px) {
 	.borda1 {
