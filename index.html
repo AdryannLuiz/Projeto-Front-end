@@ -1,87 +1,97 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="estilo.css">
-	<title>Trabalho Html e Css</title>
+	<title>Garena FreeFire</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="reset.css">
 </head>
 
 <body>
+
+	<nav class="base-container mx-auto nav">
 		<div>
-
-			<img src="https://theme.zdassets.com/theme_assets/9117920/45cf9492765bd5c24faf9a0316cafc816fbfaeae.png" class="tamanho">
-
+			<img src="./assets/logo.png" class="logo" alt="logo">
 		</div>
 
-        <div >
-
-			<a href="" class="link1" style="color:#3b4bda  ">Abra um Ticket</a>
-			<a href="" class="link2" style="color:#3b4bda  ">Entrar </a>
-
-		</div>
-
-		<div class="container">
-            <img src="https://theme.zdassets.com/theme_assets/9117920/7303512f449b7252e73629484225d9843ed1a5ac.jpg">
-            <div class="search-container">
-
-				<form action="/search" method="get">
-					<input type="text" name="q" placeholder="Pesquisar...">
-					<button type="submit">Buscar</button>
-				  </form>
-            </div>
-          </div>
-
-
-
-		<div class="borda1">
-
-			<p class="texto1" style="color:#3b4bda">Compras , Pagamentos, Ouro e Diamantes</p>
-			<p class="texto2" style="color:#3b4bda"> Aqui você encontra dúvidas de pagamentos, compras gerais no jogo e compras de diamantes. </p>
-
-		</div>
-
-		<div class="borda2">
-
-			<p class="texto1" style="color:#3b4bda">Problemas Técnicos</p>
-			<p class="texto2" style="color:#3b4bda"> Problemas de conexão, lag, problemas com o servidor, queda de FPS, jogo travando, etc. </p>
-
-		</div>
-
-		<div class="borda3">
-
-			<p class="texto1" style="color:#3b4bda">Temporada e Eventos</p>
-			<p class="texto2" style="color:#3b4bda"> Aqui você pode tirar dúvidas sobre detalhes do funcionamento de Eventos e Temporadas</p>
-
-		</div>
-
-		<div class="borda4">
-
-			<p class="texto1" style="color:#3b4bda">Acesso à Conta de Jogo</p>
-			<p class="texto2" style="color:#3b4bda"> Se não estiver conseguindo conectar à conta de jogo, estiver com algum problema cadastral, está tentando migrar sua c...</p>
-
-		</div>
-
-		<div class="borda6">
-
-				<p class="texto1" style="color:#3b4bda">Dúvidas no jogo(itens,skins,personagens,etc)</p>
-				<p class="texto2" style="color:#3b4bda">não sabe como funciona determinados recursos do jogo ? veja os artigos que temos sobre free fire para solucionar suas...</p>
-
-		</div>
-
-		<div class="borda7">
-
-				<p class="texto3" style="color:#3b4bda">Suporte de outros produtos garena</p>
-
-		</div>
-
-        <div>
-            <hr>
-        </div>
 		<div>
-			<a href="" class="link3" style="color:#363636">Free Fire Suporte</a>
-
+			<a href="" class="buttons mx-2">Abra um Ticket</a>
+			<a href="" class="buttons mx-2">Entrar</a>
 		</div>
+	</nav>
 
+	<section class="header">
+		<div class="base-container mx-auto">
+			<form class="mx-auto search" action="/search" method="get">
+				<input type="text" name="query" class="header-content search-bar" placeholder="Pesquisa">
+			</form>
+		</div>
+	</section>
+
+	<main class="base-container mx-auto">
+		<section class="container">
+
+			<div class="cards">
+
+				<div class="card-content">
+					<h4 class="card-title">Compras , Pagamentos, Ouro e Diamantes</h4>
+					<p class="card-description"> Aqui você encontra dúvidas de pagamentos, compras gerais no
+						jogo e compras de diamantes. </p>
+				</div>
+
+			</div>
+
+			<div class="cards">
+
+				<div class="card-content">
+					<h4 class="card-title">Problemas Técnicos</h4>
+					<p class="card-description"> Problemas de conexão, lag, problemas com o servidor, queda de
+						FPS, jogo travando, etc. </p>
+				</div>
+
+			</div>
+
+			<div class="cards">
+
+				<div class="card-content">
+					<h4 class="card-title">Temporada e Eventos</h4>
+					<p class="card-description"> Aqui você pode tirar dúvidas sobre detalhes do funcionamento de
+						Eventos e Temporadas</p>
+				</div>
+
+			</div>
+
+			<div class="cards">
+
+				<div class="card-content">
+					<h4 class="card-title">Acesso à Conta de Jogo</h4>
+					<p class="card-description"> Se não estiver conseguindo conectar à conta de jogo, estiver
+						com algum problema cadastral, está tentando migrar sua c...</p>
+				</div>
+
+			</div>
+
+			<div class="cards">
+
+				<div class="card-content">
+					<h4 class="card-title">Dúvidas no jogo(itens, skins, personagens, etc)</h4>
+					<p class="card-description">não sabe como funciona determinados recursos do jogo ? veja os
+						artigos que temos sobre free fire para solucionar suas...</p>
+
+				</div>
+
+			</div>
+		</section>
+	</main>
+
+	<div class="base-container container-end mx-auto"></div>
+
+	<footer class="footer">
+		<div class="base-container mx-auto">
+			<a href="" class="footer-link">Free Fire Suporte</a>
+		</div>
+	</footer>
 
 </html>
