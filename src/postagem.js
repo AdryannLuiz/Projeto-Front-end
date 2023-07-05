@@ -54,11 +54,18 @@ export const adicionarPostagem = (postagem) => {
 
 export const carregarDados = () => {
 
-    let data = localStorage.getItem("dados");
+    let data = JSON.parse(localStorage.getItem("dados"));
 
     if (!data) {
-        POSTAGENS_PADRAO.forEach(el => {
-            adicionarPostagem(el)
-        })
+        salvarPadrao();
     }
+
+    POSTAGENS_PADRAO.forEach(el => {
+        adicionarPostagem(el)
+    })
+
+}
+
+const salvarPadrao = () => {
+    localStorage.setItem("dados", JSON.stringify(POSTAGENS_PADRAO))
 }
