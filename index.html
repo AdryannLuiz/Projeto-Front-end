@@ -5,15 +5,15 @@
 	<meta charset="utf-8">
 	<title>Garena FreeFire</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="./src/style.css">
+	<link rel="stylesheet" type="text/css" href="./src/reset.css">
 </head>
 
 <body>
 
 	<nav class="base-container mx-auto nav">
 		<div>
-			<img src="./assets/logo.png" class="logo" alt="logo">
+			<img src="./src/assets/logo.png" class="logo" alt="logo">
 		</div>
 
 		<div>
@@ -31,58 +31,18 @@
 	</section>
 
 	<main class="base-container mx-auto">
-		<section class="container">
+
+		<section class="container" id="postagens">
 
 			<div class="cards">
-
 				<div class="card-content">
-					<h4 class="card-title">Compras , Pagamentos, Ouro e Diamantes</h4>
-					<p class="card-description"> Aqui você encontra dúvidas de pagamentos, compras gerais no
-						jogo e compras de diamantes. </p>
+					<img class="mx-auto card-imagem" src="${img-link}" alt="${img-alt}">
+					<h4 class="card-title">${title}</h4>
+					<p class="card-description">${description}</p>
+					<p class="card-date">${data}</p>
 				</div>
-
 			</div>
 
-			<div class="cards">
-
-				<div class="card-content">
-					<h4 class="card-title">Problemas Técnicos</h4>
-					<p class="card-description"> Problemas de conexão, lag, problemas com o servidor, queda de
-						FPS, jogo travando, etc. </p>
-				</div>
-
-			</div>
-
-			<div class="cards">
-
-				<div class="card-content">
-					<h4 class="card-title">Temporada e Eventos</h4>
-					<p class="card-description"> Aqui você pode tirar dúvidas sobre detalhes do funcionamento de
-						Eventos e Temporadas</p>
-				</div>
-
-			</div>
-
-			<div class="cards">
-
-				<div class="card-content">
-					<h4 class="card-title">Acesso à Conta de Jogo</h4>
-					<p class="card-description"> Se não estiver conseguindo conectar à conta de jogo, estiver
-						com algum problema cadastral, está tentando migrar sua c...</p>
-				</div>
-
-			</div>
-
-			<div class="cards">
-
-				<div class="card-content">
-					<h4 class="card-title">Dúvidas no jogo(itens, skins, personagens, etc)</h4>
-					<p class="card-description">não sabe como funciona determinados recursos do jogo ? veja os
-						artigos que temos sobre free fire para solucionar suas...</p>
-
-				</div>
-
-			</div>
 		</section>
 	</main>
 
@@ -93,5 +53,8 @@
 			<a href="" class="footer-link">Free Fire Suporte</a>
 		</div>
 	</footer>
+
+	<script src="./src/script.js" type="module"></script>
+</body>
 
 </html>

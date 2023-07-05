@@ -19,6 +19,8 @@
 	justify-content: space-between;
 	align-items: center;
 	height: 71px;
+	padding-right: 8px;
+	padding-left: 8px;
 }
 
 .logo {
@@ -115,6 +117,17 @@
 
 .card-description:hover {
 	text-decoration: none;
+}
+
+.card-imagem {
+	display: block;
+	width: 64px;
+	height: 64px;
+}
+
+.card-date {
+	margin-top: 8px;
+	font-size: .8rem;
 }
 
 .container-end {
