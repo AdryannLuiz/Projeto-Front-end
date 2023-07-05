@@ -1,5 +1,7 @@
-const POSTAGENS = document.querySelector("#postagens");
-const TEMPLATE = POSTAGENS.children[0].cloneNode(true);
+const POSTAGENS_TELA = document.querySelector("#postagens");
+const TEMPLATE = POSTAGENS_TELA.children[0].cloneNode(true);
+
+const BARRA_BUSCA = document.querySelector("#barra-busca");
 
 const POSTAGENS_PADRAO = [
     {
@@ -34,8 +36,11 @@ const POSTAGENS_PADRAO = [
     },
 ]
 
+
+let POSTAGENS = []
+
 export const limpar = () => {
-    POSTAGENS.innerHTML = '';
+    POSTAGENS_TELA.innerHTML = '';
 }
 
 export const adicionarPostagem = (postagem) => {
@@ -44,11 +49,11 @@ export const adicionarPostagem = (postagem) => {
 
     elemento.innerHTML = elemento.innerHTML.replaceAll("${title}", postagem.title)
     elemento.innerHTML = elemento.innerHTML.replaceAll("${description}", postagem.description)
-    elemento.innerHTML = elemento.innerHTML.replaceAll("${data}", postagem.data.toLocaleDateString())
+    elemento.innerHTML = elemento.innerHTML.replaceAll("${data}", new Date(postagem.data).toLocaleDateString())
     elemento.innerHTML = elemento.innerHTML.replaceAll("${img-link}", postagem.imagem)
     elemento.innerHTML = elemento.innerHTML.replaceAll("${img-alt}", postagem.title)
 
-    POSTAGENS.appendChild(elemento)
+    POSTAGENS_TELA.appendChild(elemento)
 
 }
 
@@ -60,12 +65,42 @@ export const carregarDados = () => {
         salvarPadrao();
     }
 
-    POSTAGENS_PADRAO.forEach(el => {
-        adicionarPostagem(el)
+    data.forEach(el => {
+        POSTAGENS.push(el)
     })
 
+
+    console.log(POSTAGENS);
+
+    mostrarDados(POSTAGENS)
+
+}
+
+export const mostrarDados = (postagens) => {
+    limpar();
+    postagens.forEach(el => {
+        adicionarPostagem(el)
+    })
 }
 
 const salvarPadrao = () => {
     localStorage.setItem("dados", JSON.stringify(POSTAGENS_PADRAO))
 }
+
+
+BARRA_BUSCA.addEventListener("input", (evento) => {
+
+    let dados = evento.target.value;
+
+    if (!dados || dados === '') {
+        mostrarDados(POSTAGENS)
+        return;
+    }
+
+    mostrarDados(
+        POSTAGENS.filter(el =>
+            el.title.toLowerCase().includes(dados.toLowerCase())
+        )
+    )
+
+})
