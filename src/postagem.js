@@ -43,8 +43,30 @@ const POSTAGENS_PADRAO = [
 
 ]
 
-
 let POSTAGENS = []
+
+const salvarPadrao = () => {
+    localStorage.setItem("dados", JSON.stringify(POSTAGENS_PADRAO))
+}
+
+
+BARRA_BUSCA.addEventListener("input", (evento) => {
+
+    let dados = evento.target.value;
+
+    if (!dados || dados === '') {
+        mostrarDados(POSTAGENS)
+        return;
+    }
+
+    mostrarDados(
+        POSTAGENS.filter(el =>
+            el.title.toLowerCase().includes(dados.toLowerCase()) ||
+            el.description.toLowerCase().includes(dados.toLowerCase())
+        )
+    )
+
+})
 
 export const limpar = () => {
     POSTAGENS_TELA.innerHTML = '';
@@ -92,26 +114,3 @@ export const mostrarDados = (postagens) => {
         adicionarPostagem(el)
     })
 }
-
-const salvarPadrao = () => {
-    localStorage.setItem("dados", JSON.stringify(POSTAGENS_PADRAO))
-}
-
-
-BARRA_BUSCA.addEventListener("input", (evento) => {
-
-    let dados = evento.target.value;
-
-    if (!dados || dados === '') {
-        mostrarDados(POSTAGENS)
-        return;
-    }
-
-    mostrarDados(
-        POSTAGENS.filter(el =>
-            el.title.toLowerCase().includes(dados.toLowerCase()) ||
-            el.description.toLowerCase().includes(dados.toLowerCase())
-        )
-    )
-
-})

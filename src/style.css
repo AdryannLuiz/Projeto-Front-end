@@ -170,6 +170,28 @@ button[type="submit"] {
 	text-decoration: underline;
 }
 
+.card-controls {
+	display: flex;
+	justify-content: space-evenly;
+	margin: 8px 0;
+}
+
+.card-controls button {
+	background-color: #2e4b6b;
+	border: none;
+	border-radius: 5px;
+	padding: 8px;
+	font-size: 16px;
+	font-weight: 600;
+	color: #fff;
+}
+
+.card-controls button:hover {
+	color: #2e4b6b;
+	background-color: #fff;
+}
+
+
 @media (min-width: 768px) {
 
 	.container {
