@@ -28,7 +28,7 @@
 }
 
 .buttons {
-	color: #00A1F5;
+	color: #015887;
 	text-decoration: none;
 }
 
@@ -92,7 +92,7 @@
 	border: solid 1px #0072EF;
 	border-radius: 5px;
 	grid-column: span 2;
-	color: #00A1F5;
+	color: #015887;
 }
 
 .cards:hover {

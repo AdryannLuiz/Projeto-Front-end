@@ -60,14 +60,6 @@ export const gerarPostagem = () => {
         proxId
     )
 
-    // let postagem = new postagem{
-    //     title: INPUT_TITLE.value,
-    //     description: INPUT_DESCRIPTION.value,
-    //     imagem: INPUT_IMG.value,
-    //     data: `${INPUT_DATE.value}T00:00:00.000Z`,
-    //     id: proxId
-    // }
-
     let postagens = pegarPostagens();
 
     if (editar) {
