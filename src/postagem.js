@@ -137,20 +137,57 @@ export const editarPostagem = (id) => {
         const data = prompt("Digite a nova data", postagem.data);
         const imagem = prompt("Digite o URL da nova imagem", postagem.imagem);
 
-        if (titulo && descricao) {
+        if (titulo) {
             postagem.title = titulo;
-            postagem.description = descricao;
-            postagem.data = data;
-            postagem.imagem = imagem;
+        }
 
+        if (descricao) {
+            postagem.description = descricao;
+        }
+
+        if (data) {
+            postagem.data = data;
+        }
+
+        if (imagem) {
+            postagem.imagem = imagem;
+        }
+
+        if (titulo || descricao || data || imagem) {
             salvarDados(POSTAGENS);
             carregarDados();
         }
+
     }
 };
 
 export const excluirPostagem = (id) => {
     POSTAGENS = POSTAGENS.filter(el => el.id !== id);
+    salvarDados(POSTAGENS);
+    carregarDados();
+}
+
+export const proximoId = () => {
+
+    let maior = Number.MIN_VALUE;
+
+    for (let post of POSTAGENS) {
+        if (post.id > maior)
+            maior = post.id;
+    }
+
+    if (maior === Number.MIN_VALUE)
+        return 0;
+
+    return ++maior;
+}
+
+export const pegarPostagens = () => {
+    return POSTAGENS
+}
+
+export const registrarPostagem = (postagem) => {
+    POSTAGENS.push(postagem)
     salvarDados(POSTAGENS);
     carregarDados();
 }
