@@ -107,11 +107,20 @@
 
 .card-title {
 	font-size: 1rem;
+	white-space: nowrap;
+	line-break: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .card-description {
 	margin-top: 10px;
 	font-size: 0.875rem;
+	white-space: normal;
+	line-break: normal;
+	overflow: hidden;
+	overflow-y: scroll;
+	text-overflow: ellipsis;
 }
 
 .card-description:hover {
