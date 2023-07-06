@@ -1,3 +1,5 @@
+import { Modal } from "./tela.js";
+
 const POSTAGENS_TELA = document.querySelector("#postagens");
 const TEMPLATE = POSTAGENS_TELA.children[0].cloneNode(true);
 
@@ -40,7 +42,6 @@ const POSTAGENS_PADRAO = [
         data: new Date(),
         id: 4
     },
-
 ]
 
 let POSTAGENS = []
@@ -71,7 +72,28 @@ BARRA_BUSCA.addEventListener("input", (evento) => {
 
 })
 
-export const limpar = () => {
+
+export const proximoId = () => {
+
+    let maior = Number.MIN_VALUE;
+
+    for (let post of POSTAGENS) {
+        if (post.id > maior)
+            maior = post.id;
+    }
+
+    if (maior === Number.MIN_VALUE)
+        return 0;
+
+    return ++maior;
+}
+
+export const pegarPostagens = () => {
+    return POSTAGENS
+}
+
+
+export const limparTela = () => {
     POSTAGENS_TELA.innerHTML = '';
 }
 
@@ -109,11 +131,10 @@ export const carregarDados = () => {
     POSTAGENS = [];
 
     data.forEach(el => {
-        POSTAGENS.push(el)
+        let { title, description, imagem, data, id } = el;
+        let post = new Postagem(title, description, imagem, data, id)
+        POSTAGENS.push(post)
     })
-
-
-    console.log(POSTAGENS);
 
     mostrarDados(POSTAGENS)
 
@@ -121,73 +142,74 @@ export const carregarDados = () => {
 
 export const mostrarDados = (postagens) => {
 
-    limpar();
+    limparTela();
 
     postagens.forEach(el => {
-        adicionarPostagem(el)
+        el.mostrarPostagem(POSTAGENS_TELA)
     })
 }
 
 export const editarPostagem = (id) => {
-    const postagem = POSTAGENS.find(el => el.id === id);
-
-    if (postagem) {
-        const titulo = prompt("Digite o novo título", postagem.title);
-        const descricao = prompt("Digite a nova descrição", postagem.description);
-        const data = prompt("Digite a nova data", postagem.data);
-        const imagem = prompt("Digite o URL da nova imagem", postagem.imagem);
-
-        if (titulo) {
-            postagem.title = titulo;
-        }
-
-        if (descricao) {
-            postagem.description = descricao;
-        }
-
-        if (data) {
-            postagem.data = data;
-        }
-
-        if (imagem) {
-            postagem.imagem = imagem;
-        }
-
-        if (titulo || descricao || data || imagem) {
-            salvarDados(POSTAGENS);
-            carregarDados();
-        }
-
-    }
+    const postagem = POSTAGENS.find(el => el.id == id);
+    postagem.editarPostagem();
 };
 
 export const excluirPostagem = (id) => {
-    POSTAGENS = POSTAGENS.filter(el => el.id !== id);
+    console.log(id)
+    POSTAGENS = POSTAGENS.filter(el => el.id != id);
     salvarDados(POSTAGENS);
     carregarDados();
-}
-
-export const proximoId = () => {
-
-    let maior = Number.MIN_VALUE;
-
-    for (let post of POSTAGENS) {
-        if (post.id > maior)
-            maior = post.id;
-    }
-
-    if (maior === Number.MIN_VALUE)
-        return 0;
-
-    return ++maior;
-}
-
-export const pegarPostagens = () => {
-    return POSTAGENS
 }
 
 export const registrarPostagem = (postagem) => {
+
+    excluirPostagem(postagem.id)
     POSTAGENS.push(postagem)
     salvarDados(POSTAGENS);
     carregarDados();
+
+}
+
+export const editarPostagemItem = (postagem) => {
+
+    excluirPostagem(postagem.id)
+    POSTAGENS.push(postagem)
+    salvarDados(POSTAGENS);
+    carregarDados();
+
+}
+
+export class Postagem {
+
+    constructor(title, description, imagem, data, id) {
+        this.title = title;
+        this.description = description;
+        this.imagem = imagem;
+        this.data = data;
+        this.id = id;
+    }
+
+    mostrarPostagem(tela) {
+
+        console.log(this)
+
+        let elemento = TEMPLATE.cloneNode(true);
+
+        elemento.innerHTML = elemento.innerHTML.replaceAll("${title}", this.title)
+        elemento.innerHTML = elemento.innerHTML.replaceAll("${description}", this.description)
+        elemento.innerHTML = elemento.innerHTML.replaceAll("${data}", new Date(this.data).toLocaleDateString())
+        elemento.innerHTML = elemento.innerHTML.replaceAll("${img-link}", this.imagem)
+        elemento.innerHTML = elemento.innerHTML.replaceAll("${img-alt}", this.title)
+        elemento.innerHTML = elemento.innerHTML.replaceAll("${id}", this.id)
+
+        elemento.setAttribute("post", this.id)
+
+        tela.appendChild(elemento)
+
+    }
+
+    editarPostagem() {
+        new Modal(this).abrir();
+    }
+
 }
