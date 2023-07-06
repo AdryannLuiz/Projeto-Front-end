@@ -45,10 +45,13 @@ const POSTAGENS_PADRAO = [
 
 let POSTAGENS = []
 
-const salvarPadrao = () => {
-    localStorage.setItem("dados", JSON.stringify(POSTAGENS_PADRAO))
+const salvarDados = (postagens) => {
+    localStorage.setItem("dados", JSON.stringify(postagens))
 }
 
+const salvarPadrao = () => {
+    salvarDados(POSTAGENS_PADRAO)
+}
 
 BARRA_BUSCA.addEventListener("input", (evento) => {
 
@@ -95,7 +98,15 @@ export const carregarDados = () => {
 
     if (!data) {
         salvarPadrao();
+        data = JSON.parse(localStorage.getItem("dados"));
     }
+
+    if (data.length === 0 && confirm("Deseja carregar os dados padrão da página?")) {
+        salvarPadrao();
+        data = JSON.parse(localStorage.getItem("dados"));
+    }
+
+    POSTAGENS = [];
 
     data.forEach(el => {
         POSTAGENS.push(el)
@@ -109,8 +120,37 @@ export const carregarDados = () => {
 }
 
 export const mostrarDados = (postagens) => {
+
     limpar();
+
     postagens.forEach(el => {
         adicionarPostagem(el)
     })
+}
+
+export const editarPostagem = (id) => {
+    const postagem = POSTAGENS.find(el => el.id === id);
+
+    if (postagem) {
+        const titulo = prompt("Digite o novo título", postagem.title);
+        const descricao = prompt("Digite a nova descrição", postagem.description);
+        const data = prompt("Digite a nova data", postagem.data);
+        const imagem = prompt("Digite o URL da nova imagem", postagem.imagem);
+
+        if (titulo && descricao) {
+            postagem.title = titulo;
+            postagem.description = descricao;
+            postagem.data = data;
+            postagem.imagem = imagem;
+
+            salvarDados(POSTAGENS);
+            carregarDados();
+        }
+    }
+};
+
+export const excluirPostagem = (id) => {
+    POSTAGENS = POSTAGENS.filter(el => el.id !== id);
+    salvarDados(POSTAGENS);
+    carregarDados();
 }
