@@ -17,8 +17,7 @@
 		</div>
 
 		<div>
-			<a href="" class="buttons mx-2">Abra um Ticket</a>
-			<a href="" class="buttons mx-2">Entrar</a>
+			<button id="btnCriarPostagem" class="buttons">Adicionar Postagem</a>
 		</div>
 	</nav>
 
@@ -57,6 +56,48 @@
 			<a href="" class="footer-link">Free Fire Suporte</a>
 		</div>
 	</footer>
+
+	<div id="criarPostagem" class="modal">
+		<div class="modal-content">
+
+			<div class="modal-content-header">
+				<h3>Adicionar Postagem</h3>
+				<button id="modal-close" class="modal-close">🗙</button>
+			</div>
+
+			<div class="content">
+
+				<div class="modal-input-group mx-auto">
+					<label class="modal-input-title" for="titulo">Título</label>
+					<input class="modal-input" type="text" id="titulo" name="titulo">
+					<span class="modal-erro" id="erro-titulo"></span>
+				</div>
+
+				<div class="modal-input-group mx-auto">
+					<label class="modal-input-title" for="img">Imagem</label>
+					<input class="modal-input" type="url" id="img" name="imagem">
+					<span class="modal-erro" id="erro-img"></span>
+				</div>
+
+				<div class="modal-input-group mx-auto">
+					<label class="modal-input-title" for="descricao">Descrição</label>
+					<textarea class="modal-input modal-textinput" type="text" id="descricao"
+						name="descricao"></textarea>
+					<span class="modal-erro" id="erro-descricao"></span>
+				</div>
+
+				<div class="modal-input-group mx-auto">
+					<label class="modal-input-title" for="data">Data</label>
+					<input class="modal-input" type="date" id="data" name="data">
+					<span class="modal-erro" id="erro-data"></span>
+				</div>
+
+				<button class="modal-input-save" id="modal-salvar">SALVAR</button>
+
+			</div>
+
+		</div>
+	</div>
 
 	<script src="./src/script.js" type="module"></script>
 </body>
